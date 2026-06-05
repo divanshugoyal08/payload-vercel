@@ -2,9 +2,15 @@ import type { CollectionConfig } from 'payload'
 
 export const Blogs: CollectionConfig = {
   slug: 'blogs',
+
+  access: {
+    read: () => true,
+  },
+
   admin: {
     useAsTitle: 'title',
   },
+
   fields: [
     {
       name: 'title',
