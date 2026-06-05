@@ -11,41 +11,54 @@ export const Blogs: CollectionConfig = {
     useAsTitle: 'title',
   },
 
-  fields: [
-    {
-      name: 'title',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
-    },
-    {
-      name: 'excerpt',
-      type: 'textarea',
-    },
-    {
-      name: 'featuredImage',
-      type: 'upload',
-      relationTo: 'media',
-    },
-    {
-      name: 'content',
-      type: 'richText',
-      required: true,
-    },
-    {
-      name: 'author',
-      type: 'text',
-      defaultValue: 'Admin',
-    },
-    {
-      name: 'publishedDate',
-      type: 'date',
-      required: true,
-    },
-  ],
+ fields: [
+  {
+    name: 'title',
+    type: 'text',
+    required: true,
+  },
+
+  {
+    name: 'category',
+    type: 'relationship',
+    relationTo: 'categories',
+    required: true,
+  },
+
+  {
+    name: 'slug',
+    type: 'text',
+    required: true,
+    unique: true,
+  },
+
+  {
+    name: 'excerpt',
+    type: 'textarea',
+  },
+
+  {
+    name: 'featuredImage',
+    type: 'upload',
+    relationTo: 'media',
+  },
+
+  {
+    name: 'content',
+    type: 'richText',
+    required: true,
+  },
+
+  {
+    name: 'author',
+    type: 'text',
+    defaultValue: 'Admin',
+  },
+
+  {
+    name: 'publishedDate',
+    type: 'date',
+    required: true,
+  },
+]
 }

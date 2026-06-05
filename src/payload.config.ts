@@ -8,6 +8,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Blogs } from './collections/Blogs'
+import { Categories } from './collections/Categories'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -15,11 +16,14 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
+      meta: {
+    titleSuffix: '- Divanshu CMS',
+  },
     importMap: {
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Blogs],
+  collections: [Users, Media,Categories, Blogs,],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
